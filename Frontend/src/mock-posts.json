@@ -1,0 +1,20 @@
+{
+"posts": [
+    {
+      "id": 1,
+      "title": "nice day",
+      "contents": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis risus in lectus lobortis consectetur vel et est. Curabitur mauris metus, molestie et nisi a, porttitor ultricies diam. Sed tristique ultricies justo et egestas. Nullam vel lorem nunc. Aliquam congue bibendum porttitor. Pellentesque tempus consequat risus, ac tincidunt diam aliquet eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin mattis sed ligula sed scelerisque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce in nisi vulputate, facilisis turpis eu, posuere lectus. Integer luctus eu neque at sagittis. Donec erat justo. ",
+      "imagePath": "sfhggfshhttps://ecsmedia.pl/c/niepowstrzymany-w-iext125394762.jpg",
+      "board": "/b",
+      "authorId": 1
+    },
+    {
+      "id": 2,
+      "title": "bad day", 
+      "contents": "Lorem ipsum",
+      "imagePath": "XXX",
+      "board": "/t",
+      "authorId": 2
+    }
+  ]
+}

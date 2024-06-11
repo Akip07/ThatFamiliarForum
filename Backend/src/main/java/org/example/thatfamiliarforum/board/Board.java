@@ -1,41 +1,73 @@
 package org.example.thatfamiliarforum.board;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table
 public class Board {
     @Id
     @SequenceGenerator(
-            name = "table_sequence",
-            sequenceName = "table_sequence",
+            name = "board_sequence",
+            sequenceName = "board_sequence",
             allocationSize = 1
     )
-    private String id;
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "board_sequence"
+    )
+
+
+    private Long id;
+    private String initial;
     private String name;
     private String description;
 
     public Board() {
     }
 
-    public Board(String id, String name, String description) {
+    public Board(Long id, String initial, String name, String description) {
         this.id = id;
+        this.initial = initial;
         this.name = name;
         this.description = description;
     }
 
+    public Board(String initial, String name, String description) {
+        this.initial = initial;
+        this.name = name;
+        this.description = description;
+    }
 
+    public Long getId() {
+        return id;
+    }
 
-    @Override
-    public String toString() {
-        return "Board{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getInitial() {
+        return initial;
+    }
+
+    public void setInitial(String initial) {
+        this.initial = initial;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 

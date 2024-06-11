@@ -16,6 +16,7 @@ public class PostController {
     @GetMapping
     public List<Post> GetPosts() {return postService.GetPosts();}
 
+
     @PostMapping
     public void AddNewPost(@RequestBody Post post) {postService.AddNewPost(post);}
 

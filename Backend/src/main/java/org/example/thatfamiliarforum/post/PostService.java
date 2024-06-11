@@ -21,6 +21,9 @@ public class PostService {
     @GetMapping
     public List<Post> GetPosts(){ return postRepository.findAll(); }
 
+    @GetMapping
+    public List<Post> GetPostsFromBoard(String initial){return postRepository.findByBoard(initial);}
+
     public void AddNewPost(Post post) {
         postRepository.save(post);
     }

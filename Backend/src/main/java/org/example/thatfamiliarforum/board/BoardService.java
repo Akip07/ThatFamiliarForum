@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BoardService {
@@ -19,7 +18,7 @@ public class BoardService {
 
     public void AddNewBoard(Board board) {boardRepository.save(board);}
 
-    public void DeleteBoard(String boardId) {
+    public void DeleteBoard(Long boardId) {
         boolean exists = boardRepository.existsById(boardId);
         if(!exists) {
             throw new IllegalStateException("board with id " + boardId + " does not exist");
@@ -27,5 +26,11 @@ public class BoardService {
         boardRepository.deleteById(boardId);
     }
 
+    public List<Board> GetBoardsByName(String name) {
+        return boardRepository.findByName(name);
+    }
 
+    public List<Board> GetBoardByInitial(String initial) {
+        return boardRepository.findByInitial(initial);
+    }
 }

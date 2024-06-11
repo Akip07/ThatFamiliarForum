@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import PostBox from './PostBox';
 
 const PostList = () => {
-    const apiUrl = '/api/posts';
+    const apiUrl = '/api/posts?rootPost=true';
     const [posts, setPosts] = useState([]);
   
     useEffect(() => {

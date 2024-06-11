@@ -3,12 +3,12 @@ import {Link} from 'react-router-dom'
 import { useState } from 'react'
 import {FaMapMarker} from 'react-icons/fa'
 
-const PostBox = ({post}) => {
+const PostBox = ({post, isRoot = false}) => {
     const [showFullDescription, setShowFullDescription] = useState(false);
 
     let description = post.contents;
     let contentIsLong=false;
-    if(description.length>86) {
+    if(description.length>86 && !isRoot) {
         contentIsLong = true;
     }
 
@@ -29,14 +29,15 @@ const PostBox = ({post}) => {
                         </div>
                         {contentIsLong? (<button onClick={() => setShowFullDescription((prevState) => !prevState )} className="text-indigo-500 mb-5 hover:text-indigo-600">
                             {showFullDescription ? 'Less' : 'More'}
-                        </button>):(<div>More</div>)}
+                        </button>):(<div></div>)}
                         <div className="flex flex-col lg:flex-row justify-between mb-4">
-                          <Link
+                          {isRoot ? <div/>: <Link
                             to={`/posts/${post.id}`}
                             className="h-[36px] min-w-5 bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm "
                           >
                            Read More
-                          </Link>
+                          </Link>}
+                          
                         </div>
                       </div>
                     </div>

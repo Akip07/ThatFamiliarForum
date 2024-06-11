@@ -1,7 +1,8 @@
 package org.example.thatfamiliarforum.post;
 
 import jakarta.persistence.*;
-import org.example.thatfamiliarforum.user.User;
+
+import java.time.LocalDate;
 
 @Entity
 @Table
@@ -17,65 +18,104 @@ public class Post {
             generator = "post_sequence"
     )
     private Long id;
+    private String title;
     private String contents;
     private String imagePath;
+    private String board;
     private Long authorId;
+    private Long thread;
+    private LocalDate postDate;
 
     public Post() {
     }
 
-    public Post(Long id, String contents, String imagePath, Long authorId) {
+    public Post(Long id, String title, String contents, String imagePath, String board, Long thread, Long authorId) {
         this.id = id;
+        this.title = title;
         this.contents = contents;
         this.imagePath = imagePath;
+        this.board = board;
         this.authorId = authorId;
+        this.thread = thread;
+        this.postDate = LocalDate.now();
     }
 
-    public Post(String contents, String imagePath, Long authorId) {
+    public Post(String title, String contents, String imagePath, String board, Long thread, Long authorId) {
+        this.title = title;
         this.contents = contents;
         this.imagePath = imagePath;
+        this.board = board;
         this.authorId = authorId;
+        this.thread = thread;
+        this.postDate = LocalDate.now();
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getContents() {
-        return contents;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public Long getAuthorId() {
-        return authorId;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContents() {
+        return contents;
     }
 
     public void setContents(String contents) {
         this.contents = contents;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public String getBoard() {
+        return board;
+    }
+
+    public void setBoard(String board) {
+        this.board = board;
+    }
+
+    public Long getAuthorId() {
+        return authorId;
     }
 
     public void setAuthorId(Long authorId) {
         this.authorId = authorId;
     }
 
+    public LocalDate getPostDate() {
+        return postDate;
+    }
+
+    public void setPostDate(LocalDate postDate) {
+        this.postDate = postDate;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
                 "id=" + id +
+                ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
                 ", imagePath='" + imagePath + '\'' +
+                ", board='" + board + '\'' +
                 ", authorId=" + authorId +
+                ", postDate=" + postDate +
                 '}';
     }
 }

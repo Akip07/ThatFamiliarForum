@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface BoardRepository extends JpaRepository <Board, Long>{
     List<Board> findByName(String name);
-    List<Board> findByInitial(String initial);
+    Board findByInitial(String initial);
 }

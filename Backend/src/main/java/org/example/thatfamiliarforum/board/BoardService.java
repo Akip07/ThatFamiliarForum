@@ -16,6 +16,7 @@ public class BoardService {
     @GetMapping
     public List<Board> GetBoards(){return boardRepository.findAll();}
 
+
     public void AddNewBoard(Board board) {boardRepository.save(board);}
 
     public void DeleteBoard(Long boardId) {
@@ -30,7 +31,7 @@ public class BoardService {
         return boardRepository.findByName(name);
     }
 
-    public List<Board> GetBoardByInitial(String initial) {
+    public Board GetBoardByInitial(String initial) {
         return boardRepository.findByInitial(initial);
     }
 }

@@ -3,6 +3,7 @@ package org.example.thatfamiliarforum.post;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table
@@ -24,7 +25,7 @@ public class Post {
     private String board;
     private Long authorId;
     private Long thread;
-    private LocalDate postDate;
+    private LocalDateTime postDate;
 
     public Post() {
     }
@@ -37,7 +38,7 @@ public class Post {
         this.board = board;
         this.authorId = authorId;
         this.thread = thread;
-        this.postDate = LocalDate.now();
+        this.postDate = LocalDateTime.now();
     }
 
     public Post(String title, String contents, String imagePath, String board, Long thread, Long authorId) {
@@ -47,7 +48,7 @@ public class Post {
         this.board = board;
         this.authorId = authorId;
         this.thread = thread;
-        this.postDate = LocalDate.now();
+        this.postDate = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -98,12 +99,20 @@ public class Post {
         this.authorId = authorId;
     }
 
-    public LocalDate getPostDate() {
+    public LocalDateTime getPostDate() {
         return postDate;
     }
 
-    public void setPostDate(LocalDate postDate) {
+    public void setPostDate(LocalDateTime postDate) {
         this.postDate = postDate;
+    }
+
+    public Long getThread() {
+        return thread;
+    }
+
+    public void setThread(Long thread) {
+        this.thread = thread;
     }
 
     @Override
@@ -115,6 +124,7 @@ public class Post {
                 ", imagePath='" + imagePath + '\'' +
                 ", board='" + board + '\'' +
                 ", authorId=" + authorId +
+                ", thread=" + thread +
                 ", postDate=" + postDate +
                 '}';
     }

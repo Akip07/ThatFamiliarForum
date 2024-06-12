@@ -22,7 +22,17 @@ public class PostService {
     public List<Post> GetPosts(){ return postRepository.findAll(); }
 
     @GetMapping
+    public Optional<Post> GetPost(Long id) {return postRepository.findById(id);}
+
+    @GetMapping
     public List<Post> GetPostsFromBoard(String initial){return postRepository.findByBoard(initial);}
+
+    @GetMapping
+    //returns posts that begin the thread
+    public List<Post> GetRootPosts() {return postRepository.findByIdEqualsThread();}
+
+    @GetMapping
+    public List<Post> GetPostsInThread(Long thread) {return postRepository.findByThreadOrderByPostDateAsc(thread);}
 
     public void AddNewPost(Post post) {
         postRepository.save(post);

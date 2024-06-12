@@ -3,6 +3,7 @@ package org.example.thatfamiliarforum.post;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "ThatFamiliarForum/posts")
@@ -16,6 +17,9 @@ public class PostController {
     @GetMapping
     public List<Post> GetPosts() {return postService.GetPosts();}
 
+    @GetMapping(path = "{postId}")
+    public Optional<Post> GetPost(@PathVariable("postId") Long postId) {
+        return postService.GetPost(postId);}
 
     @PostMapping
     public void AddNewPost(@RequestBody Post post) {postService.AddNewPost(post);}
@@ -35,4 +39,5 @@ public class PostController {
     }
 
 }
+
 

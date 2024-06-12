@@ -14,9 +14,9 @@ public class BoardController {
     public BoardController(BoardService boardService, PostService postService) {this.boardService = boardService; this.postService = postService;}
 
     @GetMapping
-    public List<Board> GetBoards(@RequestParam(required = false) String name) {
-        if (name != null) {
-            return boardService.GetBoardsByName(name);
+    public Object GetBoards(@RequestParam(required = false) String initial) {
+        if (initial != null) {
+            return boardService.GetBoardByInitial(initial);
         }
         return boardService.GetBoards();
     }

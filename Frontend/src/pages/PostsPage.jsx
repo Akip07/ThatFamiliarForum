@@ -5,7 +5,7 @@ const PostsPage = () => {
   
 
   return (
-    <PostList/>
+    <PostList apiUrl='/api/posts'/>
   )
 }
 

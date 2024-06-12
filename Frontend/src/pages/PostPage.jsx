@@ -1,12 +1,13 @@
 import React from 'react'
 import { useParams, useLoaderData, useNavigate } from 'react-router-dom'
 import PostBox from '../components/PostBox';
+import PostList from '../components/PostList';
 
 const PostPage = ({}) => {
-    const {id} = useParams();
     const post = useLoaderData();
   return (
-    <PostBox post={post} isRoot = {true}/>
+    //<PostBox post={post} />
+    <PostList apiUrl={`/api/threads/${post.thread}`}/>
   )
 }
 

@@ -19,7 +19,6 @@ public class Post {
             generator = "post_sequence"
     )
     private Long id;
-    private String title;
     private String contents;
     private String imagePath;
     private String board;
@@ -31,9 +30,8 @@ public class Post {
         this.postDate = LocalDateTime.now();
     }
 
-    public Post(Long id, String title, String contents, String imagePath, String board, Long thread, Long authorId) {
+    public Post(Long id, String contents, String imagePath, String board, Long thread, Long authorId) {
         this.id = id;
-        this.title = title;
         this.contents = contents;
         this.imagePath = imagePath;
         this.board = board;
@@ -45,8 +43,7 @@ public class Post {
         this.postDate = LocalDateTime.now();
     }
 
-    public Post(String title, String contents, String imagePath, String board, Long thread, Long authorId) {
-        this.title = title;
+    public Post(String contents, String imagePath, String board, Long thread, Long authorId) {
         this.contents = contents;
         this.imagePath = imagePath;
         this.board = board;
@@ -66,14 +63,6 @@ public class Post {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getContents() {
@@ -128,7 +117,6 @@ public class Post {
     public String toString() {
         return "Post{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
                 ", imagePath='" + imagePath + '\'' +
                 ", board='" + board + '\'' +

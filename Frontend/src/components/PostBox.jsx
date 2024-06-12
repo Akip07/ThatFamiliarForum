@@ -30,7 +30,7 @@ const PostBox = ({post}) => {
     :
     <div></div>
     }
-    <NavLink to={`/add-post`} className="bg-red-300 ">
+    <NavLink to={`/add-reply/${post.thread}`} className="bg-red-300 ">
       Reply
     </NavLink>
     

@@ -22,14 +22,19 @@ public class PostController {
         return postService.GetPost(postId);}
 
     @PostMapping
-    public void AddNewPost(@RequestBody Post post) {postService.AddNewPost(post);}
+    public void AddNewPost(@RequestBody Post post) {postService.AddNewPost(post);
+        if(post.getThread()==-1L) {
+            postService.UpdatePost(post.getId(),null,null, post.getId());
+        }
+    }
 
     @PutMapping(path = "{postId}")
     public void UpdatePost(@PathVariable("postId") Long postId,
                            @RequestParam(required = false) String contents,
-                           @RequestParam(required = false) String imagePath
+                           @RequestParam(required = false) String imagePath,
+                           @RequestParam(required = false) Long thread
                            ) {
-        postService.UpdatePost(postId,contents, imagePath);
+        postService.UpdatePost(postId,contents, imagePath, thread);
 
     }
 

@@ -28,6 +28,7 @@ public class Post {
     private LocalDateTime postDate;
 
     public Post() {
+        this.postDate = LocalDateTime.now();
     }
 
     public Post(Long id, String title, String contents, String imagePath, String board, Long thread, Long authorId) {
@@ -37,7 +38,10 @@ public class Post {
         this.imagePath = imagePath;
         this.board = board;
         this.authorId = authorId;
-        this.thread = thread;
+        if(thread==-1L || thread==-1L)
+            this.thread = 5L;
+        else
+            this.thread = thread;
         this.postDate = LocalDateTime.now();
     }
 
@@ -47,7 +51,12 @@ public class Post {
         this.imagePath = imagePath;
         this.board = board;
         this.authorId = authorId;
-        this.thread = thread;
+        if(thread==-1L || thread==-1L) {
+            this.thread = 5L;
+        }
+        else {
+            this.thread = thread;
+        }
         this.postDate = LocalDateTime.now();
     }
 

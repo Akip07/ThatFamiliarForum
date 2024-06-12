@@ -35,11 +35,12 @@ public class PostService {
     public List<Post> GetPostsInThread(Long thread) {return postRepository.findByThreadOrderByPostDateAsc(thread);}
 
     public void AddNewPost(Post post) {
+
         postRepository.save(post);
     }
 
     @Transactional
-    public void UpdatePost(Long postId, String contents, String imagePath) {
+    public void UpdatePost(Long postId, String contents, String imagePath, Long thread) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new IllegalStateException(
                 "post with id " + postId + " does not exist")
         );
@@ -50,6 +51,10 @@ public class PostService {
 
         if(imagePath!=null && imagePath.length()>0 && !Objects.equals(post.getImagePath(),imagePath)) {
             post.setImagePath(imagePath);
+        }
+
+        if(thread!=null && !Objects.equals(post.getThread(),thread)) {
+            post.setThread(thread);
         }
     }
 

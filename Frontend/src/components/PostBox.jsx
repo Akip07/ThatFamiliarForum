@@ -39,7 +39,7 @@ const PostBox = ({ post }) => {
             :
             <div></div>
           }
-          <NavLink to={`/add-reply/${post.thread}`} className="bg-red-300">
+          <NavLink to={`/add-reply/${post.thread}`} className="bg-red-300 mr-3">
             Reply
           </NavLink>
           <button onClick={() => onDeleteClick(post.id)} className="bg-red-300">

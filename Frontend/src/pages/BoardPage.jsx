@@ -1,6 +1,5 @@
 import React from 'react'
-import { useParams, useLoaderData, useNavigate } from 'react-router-dom'
-import PostBox from '../components/PostBox';
+import { useLoaderData} from 'react-router-dom'
 import PostList from '../components/PostList';
 
 const BoardPage = ({}) => {

@@ -4,11 +4,10 @@ import { toast } from 'react-toastify';
 
 const AddReplyPage = ({ addPostSubmit }) => {
     const root = useLoaderData();
-    const [title, setTitle] = useState('');
     const [contents, setContents] = useState('');
     const [imagePath, setImagePath] = useState('');
     const [board, setBoard] = useState('');
-    const [authorId, setAuthorId] = useState('1');
+    const [authorId] = useState('1');
     const [thread, setThread] = useState('');
 
     const navigate = useNavigate();
@@ -23,7 +22,6 @@ const AddReplyPage = ({ addPostSubmit }) => {
     const submitForm = (e) => {
         e.preventDefault();
         const newPost = {
-            title,
             contents,
             imagePath,
             board,
@@ -41,19 +39,6 @@ const AddReplyPage = ({ addPostSubmit }) => {
                 <div className="bg-orange-100 px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
                     <form onSubmit={submitForm}>
                         <h2 className="text-3xl text-center text-red-800 font-semibold mb-6">Add Reply</h2>
-
-                        <div className="mb-4">
-                            <label className="block text-red-800 font-bold mb-2">Title</label>
-                            <input
-                                type="text"
-                                id="title"
-                                name="title"
-                                className="border rounded w-full py-2 px-3 mb-2 bg-red-200"
-                                required
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </div>
 
                         <div className="mb-4 ">
                             <label htmlFor="contents" className="block text-red-800 font-bold mb-2">Contents</label>

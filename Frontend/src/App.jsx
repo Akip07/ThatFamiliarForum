@@ -9,8 +9,6 @@ import AddPostPage from './pages/AddPostPage'
 import AddReplyPage from './pages/AddReplyPage'
 import {threadLoader} from './pages/AddReplyPage'
 
-
-
 const App = () => {
   const addPost = async (newJob) => {
     const res = await fetch('/api/posts', {

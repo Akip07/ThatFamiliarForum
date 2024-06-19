@@ -1,4 +1,4 @@
-A simple image-board type forum with boards.\
+A simple image-board type forum with multiple thematic boards.\
 \
 **Stack**
 - Backend: Java + SpringBoot
